@@ -1,0 +1,68 @@
+/***************************************
+	ADMIN AREA - PLUGIN SETTINGS
+****************************************/
+.contentIntro > .submit_button {
+	float: right;
+}
+
+.manifest_file {
+	margin: 4px 6px;
+}
+
+.pluginsettings {
+	margin: 4px 6px;
+}
+
+.plugin_details {
+	margin:0 10px 5px;
+	padding:0 0 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.plugin_details:after {
+	clear:both;
+}
+
+.plugin_details > .controls {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.plugin_details > .controls > .drag {
+	cursor: move;
+	margin: 3px 3px 0px 0px;
+}
+
+.plugin_details > .secondary_controls {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.plugin_details > .secondary_controls:after {
+	clear: both;
+}
+
+.plugin_details > .secondary_controls > li {
+	display: block;
+	float: left;
+	margin: 2px 1px;
+}
+
+.plugins_mass_controls {
+	margin: 0 10px;
+}
+
+.plugins_mass_controls > a {
+	cursor: pointer;
+}
+
+a.top, a.bottom {
+	cursor: pointer;
+	font-size: 80%;
+}
