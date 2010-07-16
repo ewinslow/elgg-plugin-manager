@@ -28,7 +28,7 @@ $token = generate_action_token($ts);
 ?>
 <div class="plugin_details <?php echo $active ? "active" : "not-active" ?>">
 	<ul class="controls">
-		<li class="drag" />
+		<li class="drag"></li>
 	</ul>
 	<ul class="secondary_controls">
 		<?php if (elgg_view("settings/{$plugin}/edit")) { ?>
@@ -47,10 +47,11 @@ $token = generate_action_token($ts);
 		echo elgg_view('input/checkbox', array(
 			'internalname' => 'enabled_plugins[]',
 			'internalid' => "enable_$plugin",
-			'label' => $plugin,
 			'value' => $plugin,
 			'checked' => $active,
 		));
+		
+		echo "<label for=\"enable_$plugin\">$plugin</label>";
 		
 		if(isset($manifest['version'])) {
 			$version = /*elgg_echo('admin:plugins:label:version') . ": ". */$manifest['version'];
