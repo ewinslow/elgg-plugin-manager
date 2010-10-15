@@ -4,16 +4,10 @@
  *
  * This file renders a plugin for the admin screen, including active/deactive, manifest details & display plugin
  * settings.
- *
- * @package Elgg
- * @subpackage Core
- * @author Curverider Ltd
- * @link http://elgg.org/
  */
 
 $plugin = $vars['plugin'];
 $details = $vars['details'];
-
 $active = $details['active'];
 $manifest = $details['manifest'];
 
@@ -28,15 +22,29 @@ $token = generate_action_token($ts);
 ?>
 <div class="plugin_details <?php echo $active ? "active" : "not-active" ?>">
 	<ul class="controls">
-		<li class="drag"></li>
+		<li><a class="drag ui-icon ui-icon-grip-dotted-vertical"></a></li>
 	</ul>
 	<ul class="secondary_controls">
-		<?php if (elgg_view("settings/{$plugin}/edit")) { ?>
-		<li><a class="pluginsettings_link"><?php echo elgg_echo('settings'); ?></a></li>
+		<?php if (elgg_view_exists("settings/$plugin/edit")) { ?>
+		<li class="ui-state-default ui-corner-all">
+		<?php 
+			echo elgg_view('output/url', array(
+				'href' => $vars['url']."pg/pluginsettings/admin/$plugin",
+				'text' => elgg_echo("settings"),
+				'class' => 'ui-icon ui-icon-gear',
+			));
+		?>
+		</li>
 		<?php } ?>
-		<li><a class="manifest_details"><?php echo elgg_echo('admin:plugins:label:moreinfo'); ?></a></li>
-		<li><a class="top"><?php echo elgg_echo('top'); ?></a></li>
-		<li><a class="bottom"><?php echo elgg_echo('bottom'); ?></a></li>
+		<li class="ui-state-default ui-corner-all">
+			<a class="manifest_details ui-icon ui-icon-info"><?php echo elgg_echo("admin:plugins:label:moreinfo"); ?></a>
+		</li>
+		<li class="ui-state-default ui-corner-all">
+			<a class="top ui-icon ui-icon-arrowthickstop-1-n"><?php echo elgg_echo("top"); ?></a>
+		</li>
+		<li class="ui-state-default ui-corner-all">
+			<a class="bottom ui-icon ui-icon-arrowthickstop-1-s"><?php echo elgg_echo("bottom"); ?></a>
+		</li>
 	</ul>
 	<?php 
 		echo elgg_view('input/hidden', array(
@@ -44,28 +52,20 @@ $token = generate_action_token($ts);
 			'value' => $plugin,
 		));
 		
+		echo "<label>";
 		echo elgg_view('input/checkbox', array(
 			'internalname' => 'enabled_plugins[]',
 			'internalid' => "enable_$plugin",
 			'value' => $plugin,
 			'checked' => $active,
 		));
-		
-		echo "<label for=\"enable_$plugin\">$plugin</label>";
+		echo "$plugin</label>";
 		
 		if(isset($manifest['version'])) {
-			$version = /*elgg_echo('admin:plugins:label:version') . ": ". */$manifest['version'];
+			$version = $manifest['version'];
 			echo " <span class=\"plugin_version\">$version</span>";
 		}
 	?>
-
-	<?php if (elgg_view("settings/{$plugin}/edit")) { ?>
-	<div class="pluginsettings">
-		<div id="<?php echo $plugin; ?>_settings">
-			<?php echo elgg_view("object/plugin", array('plugin' => $plugin, 'entity' => find_plugin_settings($plugin))) ?>
-		</div>
-	</div>
-	<?php } ?>
 
 	<div class="manifest_file">
 

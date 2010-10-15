@@ -1,5 +1,1 @@
-<?php 
-/**
- * 
- */
-echo elgg_view('link/stylesheet', array('href' => $vars['url'].'mod/plugin_manager/css/admin/plugins.css'));
+<link href="<?php echo $vars['url']; ?>mod/plugin_manager/css/admin/plugins.css" rel="stylesheet" type="text/css" />

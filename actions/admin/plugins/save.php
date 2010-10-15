@@ -1,5 +1,7 @@
 <?php
-admin_gatekeeper();
+/**
+ * Reorder plugins via drag/drop
+ */
 
 $enabled_plugins = get_input('enabled_plugins');
 $plugins = get_input('plugins');
@@ -34,4 +36,4 @@ if (regenerate_plugin_list($plugins)) {
 elgg_view_regenerate_simplecache();
 elgg_filepath_cache_reset();
 
-forward($_SERVER['HTTP_REFERER']);
+forward(REFERER);
