@@ -13,7 +13,7 @@ function plugin_manager_init() {
 	register_action('admin/plugins/save', FALSE, dirname(__FILE__)."/actions/admin/plugins/save.php", TRUE);
 	register_action('admin/plugins/list', FALSE, dirname(__FILE__)."/actions/admin/plugins/list.php", TRUE);
 	
-	register_page_handler('pluginsettings', 'plugin_manager_page_handler');
+	register_page_handler('pluginmanager', 'plugin_manager_page_handler');
 }
 
 function plugin_manager_page_handler($page) {

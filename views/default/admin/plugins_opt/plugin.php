@@ -29,7 +29,7 @@ $token = generate_action_token($ts);
 		<li class="ui-state-default ui-corner-all">
 		<?php 
 			echo elgg_view('output/url', array(
-				'href' => $vars['url']."pg/pluginsettings/admin/$plugin",
+				'href' => $vars['url']."pg/pluginmanager/admin/$plugin",
 				'text' => elgg_echo("settings"),
 				'class' => 'ui-icon ui-icon-gear',
 			));
