@@ -3,7 +3,7 @@
         <field key="author" value="Evan Winslow" />
         <field key="version" value="1.5" />
         <field key="description" value="Provides drag-drop and faster enable/disable mechanism for plugins" />
-        <field key="website" value="http://www.facebook.com/evanwinslow" />
+        <field key="website" value="http://github.com/ewinslow/elgg-plugin-manager" />
         <field key="copyright" value="(C) Evan Winslow 2010" />
 		<field key="licence" value="GNU Public License version 2" />
 		<field key="elgg_version" value="2009072201" />
