@@ -1,5 +1,7 @@
 <?php
 
+admin_gatekeeper();
+
 set_context('admin');
 
 $plugin = get_input('plugin');
